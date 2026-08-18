@@ -16,28 +16,29 @@
        -webkit-font-smoothing:antialiased;padding:0 0 80px}
   .wrap{max-width:1400px;margin:0 auto;padding:0 24px}
   header{background:linear-gradient(#d6e1ed 72%,rgba(214,225,237,.85));
-          backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:22px 0 0}
-  .head-row{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;justify-content:space-between}
-  h1{margin:0;font-size:clamp(12px,1.5vw,17px);font-weight:650;letter-spacing:-.02em}
+          backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:26px 0 0}
+  .head-row{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap;justify-content:space-between}
+  h1{margin:0;font-size:clamp(14px,1.8vw,20px);font-weight:650;letter-spacing:-.02em}
   h1 span{color:var(--ink-3);font-weight:400}
-  .clock{font-variant-numeric:tabular-nums;font-size:8px;color:var(--ink-2);text-align:right}
-  .clock b{display:block;font-size:14px;color:var(--ink);font-weight:600}
-  .kpis{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 9px}
-  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:6px;
-       padding:6px 9px;min-width:66px}
-  .kpi b{display:block;font-size:16px;line-height:1.1;font-weight:650}
-  .kpi span{font-size:6px;color:var(--ink-2);text-transform:uppercase;letter-spacing:.07em}
+  .clock{font-variant-numeric:tabular-nums;font-size:10px;color:var(--ink-2);text-align:right}
+  .clock b{display:block;font-size:17px;color:var(--ink);font-weight:600}
+  .kpis{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 11px}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:7px;
+       padding:7px 11px;min-width:79px}
+  .kpi b{display:block;font-size:19px;line-height:1.1;font-weight:650}
+  .kpi span{font-size:7px;color:var(--ink-2);text-transform:uppercase;letter-spacing:.07em}
   .kpi.hot b{color:var(--hot)}.kpi.calm b{color:var(--calm)}
-  .days{display:flex;gap:6px;overflow-x:auto;padding:0 0 16px}
+  .days{display:flex;gap:7px;overflow-x:auto;padding:0 0 19px}
   .day{flex:0 0 auto;background:#c5d3e8;border:1px solid #b0c1dd;color:var(--ink);
-       border-radius:8px;padding:6px 10px;cursor:pointer;text-align:center;transition:.14s;
-       min-width:56px;font:inherit}
+       border-radius:10px;padding:7px 12px;cursor:pointer;text-align:center;transition:.14s;
+       min-width:67px;font:inherit}
   .day:hover{border-color:#9ab0d0;background:#d4dfe9}
-  .day .dw{font-size:8px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em}
-  .day .dd{font-size:13px;font-weight:600;line-height:1.25;font-variant-numeric:tabular-nums}
-  .day .dc{font-size:8px;color:var(--ink-2);margin-top:1px}
+  .day .dw{font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em}
+  .day .dd{font-size:16px;font-weight:600;line-height:1.25;font-variant-numeric:tabular-nums}
+  .day .dc{font-size:11px;color:#d42a1a;font-weight:700;margin-top:1px}
   .day[aria-selected="true"]{background:#2c5aa0;border-color:#2c5aa0;color:#ffffff}
-  .day[aria-selected="true"] .dw,.day[aria-selected="true"] .dc{color:#ffffff}
+  .day[aria-selected="true"] .dw{color:#ffffff}
+  .day[aria-selected="true"] .dc{color:#ff8a7a}
   h2{margin:30px 0 4px;font-size:20px;font-weight:620;display:flex;align-items:baseline;gap:12px}
   h2 em{font-style:normal;font-size:13.5px;color:var(--ink-3);font-weight:400}
   .grp{margin-top:26px}
