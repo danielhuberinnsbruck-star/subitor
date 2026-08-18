@@ -182,7 +182,7 @@ function alignCardWidths(){
   var allCards = document.querySelectorAll('.card');
   var maxWidth = 0;
   allCards.forEach(function(card){ maxWidth = Math.max(maxWidth, card.scrollWidth); });
-  allCards.forEach(function(card){ card.style.width = maxWidth + 'px'; });
+  allCards.forEach(function(card){ card.style.width = (maxWidth / 2) + 'px'; });
 }
 function tick(){
   var n = new Date();
