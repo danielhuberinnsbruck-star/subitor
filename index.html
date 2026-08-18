@@ -96,7 +96,7 @@
 var DATA = JSON.parse(document.getElementById('payload').textContent);
 var WD = ['So','Mo','Di','Mi','Do','Fr','Sa'];
 var MO = ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
-var BUILD_LABEL = {'P23':'Pradler Straße 23','Kfj13':'Kaiser-Franz-Josef-Straße 13','Villa':'Villen','Sonstige':'Weitere Objekte'};
+var BUILD_LABEL = {'P23':'P23','Kfj13':'KFJ 13','Villa':'Villa','Sonstige':'Weitere Objekte'};
 var byDate = {};
 DATA.events.forEach(function(e){ (byDate[e.date] = byDate[e.date] || []).push(e); });
 function d(iso){ var p = iso.split('-'); return new Date(+p[0], +p[1]-1, +p[2]); }
