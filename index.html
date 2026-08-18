@@ -178,16 +178,29 @@ function renderBoard(){
     sec.appendChild(grid);
     board.appendChild(sec);
   });
+  alignCardWidths();
+}
+var CARD_WIDTH = 0;
+function computeCardWidth(){
+  // Einmalig: längsten Zimmernamen über ALLE Termine messen, damit die Breite an jedem Tag gleich ist
+  var probe = document.createElement('div');
+  probe.className = 'card';
+  probe.style.cssText = 'position:absolute;visibility:hidden;width:auto;left:-9999px';
+  probe.innerHTML = '<div class="c-top"><div><div class="room"></div></div></div>';
+  document.body.appendChild(probe);
+  var roomEl = probe.querySelector('.room'), max = 0, seen = {};
+  DATA.events.forEach(function(e){
+    var name = cleanRoomName(e.room);
+    if(seen[name]) return; seen[name] = 1;
+    roomEl.textContent = name;
+    max = Math.max(max, roomEl.scrollWidth);
+  });
+  document.body.removeChild(probe);
+  CARD_WIDTH = max + 20 + 24;
 }
 function alignCardWidths(){
-  var allCards = document.querySelectorAll('.card');
-  var maxWidth = 0;
-  allCards.forEach(function(card){
-    var r = card.querySelector('.room');
-    if(r) maxWidth = Math.max(maxWidth, r.scrollWidth);
-  });
-  // Breite = längster Zimmername + Innenabstand + etwas Luft, unabhängig von der Fenstergröße
-  allCards.forEach(function(card){ card.style.width = (maxWidth + 20 + 60) + 'px'; });
+  if(!CARD_WIDTH) computeCardWidth();
+  document.querySelectorAll('.card').forEach(function(card){ card.style.width = CARD_WIDTH + 'px'; });
 }
 function tick(){
   var n = new Date();
@@ -196,7 +209,7 @@ function tick(){
 }
 document.getElementById('gen').textContent = (DATA.generated_at || '').replace('T',' ').replace('Z',' UTC');
 document.getElementById('pcount').textContent = DATA.properties_total;
-renderDays(); renderBoard(); setTimeout(alignCardWidths, 50); tick(); setInterval(tick, 20000);
+renderDays(); renderBoard(); tick(); setInterval(tick, 20000);
 </script>
 </body>
 </html>
