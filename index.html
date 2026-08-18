@@ -40,12 +40,12 @@
   .day[aria-selected="true"] .dw,.day[aria-selected="true"] .dc{color:#ffffff}
   h2{margin:30px 0 4px;font-size:20px;font-weight:620;display:flex;align-items:baseline;gap:12px}
   h2 em{font-style:normal;font-size:13.5px;color:var(--ink-3);font-weight:400}
-  .grp{margin-top:26px;width:fit-content}
+  .grp{margin-top:26px}
   .grp-h{display:flex;align-items:center;gap:10px;margin:0 0 12px;
           font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);font-weight:700}
   .grp-h:after{content:"";flex:1;height:1px;background:var(--line)}
   .grid{display:grid;gap:12px;grid-template-columns:auto}
-  .card{background:var(--panel);border:none;border-radius:6px;padding:8px 10px;display:inline-flex;flex-direction:column;gap:6px;font-size:13px;white-space:nowrap}
+  .card{background:var(--panel);border:none;border-radius:6px;padding:8px 10px;display:flex;flex-direction:column;gap:6px;font-size:13px;white-space:nowrap}
   .card.turn{opacity:.95}
   .c-top{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
   .room{font-size:13px;font-weight:600;line-height:1.2}
@@ -182,7 +182,7 @@ function alignCardWidths(){
   var allCards = document.querySelectorAll('.card');
   var maxWidth = 0;
   allCards.forEach(function(card){ maxWidth = Math.max(maxWidth, card.scrollWidth); });
-  allCards.forEach(function(card){ card.style.minWidth = maxWidth + 'px'; });
+  allCards.forEach(function(card){ card.style.width = maxWidth + 'px'; });
 }
 function tick(){
   var n = new Date();
