@@ -181,8 +181,12 @@ function renderBoard(){
 function alignCardWidths(){
   var allCards = document.querySelectorAll('.card');
   var maxWidth = 0;
-  allCards.forEach(function(card){ maxWidth = Math.max(maxWidth, card.scrollWidth); });
-  allCards.forEach(function(card){ card.style.width = (maxWidth / 4) + 'px'; });
+  allCards.forEach(function(card){
+    var r = card.querySelector('.room');
+    if(r) maxWidth = Math.max(maxWidth, r.scrollWidth);
+  });
+  // Breite = längster Zimmername + Innenabstand + etwas Luft, unabhängig von der Fenstergröße
+  allCards.forEach(function(card){ card.style.width = (maxWidth + 20 + 60) + 'px'; });
 }
 function tick(){
   var n = new Date();
