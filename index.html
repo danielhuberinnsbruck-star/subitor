@@ -179,13 +179,10 @@ function renderBoard(){
   });
 }
 function alignCardWidths(){
-  var grids = document.querySelectorAll('.grid');
-  grids.forEach(function(grid){
-    var cards = grid.querySelectorAll('.card');
-    var maxWidth = 0;
-    cards.forEach(function(card){ maxWidth = Math.max(maxWidth, card.scrollWidth); });
-    cards.forEach(function(card){ card.style.minWidth = maxWidth + 'px'; });
-  });
+  var allCards = document.querySelectorAll('.card');
+  var maxWidth = 0;
+  allCards.forEach(function(card){ maxWidth = Math.max(maxWidth, card.scrollWidth); });
+  allCards.forEach(function(card){ card.style.minWidth = maxWidth + 'px'; });
 }
 function tick(){
   var n = new Date();
