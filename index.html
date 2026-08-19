@@ -138,7 +138,7 @@ function renderBoard(){
     board.innerHTML = '<div class="empty">Keine Check-outs an diesem Tag.</div>';
     return;
   }
-  var order = ['P23','Kfj13','Villa','Sonstige'];
+  var order = ['Kfj13','P23','Villa','Sonstige'];
   var groups = {};
   list.forEach(function(e){ (groups[e.building] = groups[e.building] || []).push(e); });
   order.filter(function(b){ return groups[b]; }).forEach(function(b){
