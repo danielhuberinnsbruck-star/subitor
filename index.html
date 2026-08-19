@@ -105,11 +105,17 @@ function esc(s){ return String(s == null ? '' : s).replace(/[&<>"]/g, function(c
 function nights(n){ return n + (n === 1 ? ' Nacht' : ' Nächte'); }
 function guests(n){ return n ? n + (n === 1 ? ' Gast' : ' Gäste') : '? Gäste'; }
 function cleanRoomName(name){ return (name || '').replace(/^\d+\.\s*/, '').replace(/\s*-\s*(top\d+|top\s*\d+)$/i, ''); }
+// Echtes heutiges Datum (lokal) statt Datenstand verwenden; heutiger Tag steht immer vorne und ist vorausgewählt
+(function(){
+  var n = new Date();
+  DATA.today = n.getFullYear() + '-' + pad(n.getMonth()+1) + '-' + pad(n.getDate());
+  if(!byDate[DATA.today]) byDate[DATA.today] = [];
+})();
 var selected = DATA.today;
 function renderDays(){
   var host = document.getElementById('days');
   host.innerHTML = '';
-  Object.keys(byDate).sort().forEach(function(iso){
+  Object.keys(byDate).sort().filter(function(iso){ return iso >= DATA.today; }).forEach(function(iso){
     var n = byDate[iso].length, x = d(iso);
     var el = document.createElement('button');
     el.className = 'day';
